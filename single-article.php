@@ -5,7 +5,11 @@
     require 'includes/article.php'; 
     
     $connection = getDB();
-    $article = getArticleFromDB($connection, $_GET['id']);
+    if (isset($_GET['id'])) {
+        $article = getArticleFromDB($connection, $_GET['id']);
+    } else {
+        $article = null;
+    }
     
 ?>
 
