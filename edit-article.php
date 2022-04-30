@@ -7,11 +7,15 @@
     $connection = getDB();
     if (isset($_GET['id'])) {
         $article = getArticleFromDB($connection, $_GET['id']);
-        $title = $article['title'];
-        $content = $article['content'];
-        $published_at = $article['published_at'];
+        if ($article) {
+            $title = $article['title'];
+            $content = $article['content'];
+            $published_at = $article['published_at'];
+        } else {
+            die('No Such Article Found!');
+        }
     } else {
-        $article = null;
+        die('Article ID is Not Supplied!');
     }
 
     var_dump($article);
