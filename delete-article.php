@@ -6,12 +6,9 @@ require 'includes/article.php';
 
 $connection = getDB();
 if (isset($_GET['id'])) {
-    $article = getArticleFromDB($connection, $_GET['id']);
+    $article = getArticleFromDB($connection, $_GET['id'], 'id');
     if ($article) {
         $id = $article['id'];
-        $title = $article['title'];
-        $content = $article['content'];
-        $published_at = $article['published_at'];
     } else {
         die('No Such Article Found!');
     }

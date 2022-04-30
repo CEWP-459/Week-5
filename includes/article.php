@@ -2,8 +2,8 @@
 
 ini_set('display_errors', 1); 
 
-function getArticleFromDB ($connection, $id) {
-    $sql = "SELECT * FROM article WHERE id = ?";
+function getArticleFromDB ($connection, $id, $columnName = "*") {
+    $sql = "SELECT $columnName FROM article WHERE id = ?";
     $stmt = mysqli_prepare($connection, $sql);
     if ($stmt === false) {
         echo mysqli_error($connection);
