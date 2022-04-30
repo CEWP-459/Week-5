@@ -28,9 +28,7 @@
             </li>
         </ol>
         <a href="./edit-article.php?id=<?= $article['id'] ?>">Edit Article</a>
-        <form action="delete-article.php?id=<?= $article['id'] ?>" method="post">
-            <button>Delete Article</button>
-        </form>   
+        <a href="./delete-article.php?id=<?= $article['id'] ?>">Delete Article</a>  
     <?php endif; ?>    
 </body>
 

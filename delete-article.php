@@ -37,3 +37,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 
 ?>
+
+
+<?php require 'includes/header.php'; ?>
+
+<h2> Delete article </h2>
+<h3> Are you sure? </h3>
+<form method="post">
+    <button>Delete Article</button>
+</form> 
+<a href="./single-article.php?id=<?= $article['id'] ?>">Cancel</a>  
