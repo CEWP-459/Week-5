@@ -2,24 +2,10 @@
 
     ini_set('display_errors', 1); 
     require 'includes/database-connection.php'; 
+    require 'includes/article.php'; 
     
     $connection = getDB();
-    if (isset($_GET['id']) && is_numeric($_GET['id'])) {
-        $sql = "SELECT * FROM article WHERE id = {$_GET['id']}";
-        // var_dump($sql);
-        try {
-            $result = mysqli_query($connection, $sql);
-            if ($result) {
-                $article = mysqli_fetch_array($result, MYSQLI_ASSOC);
-            } else {
-                echo "DB did not return a value: " . mysqli_error($connection);
-            }
-        } catch (Exception $e) {
-            echo "ERROR: " . $e;
-        }
-    } else {
-        $article = null;
-    }
+    $article = getArticleFromDB($connection, $_GET['id']);
     
 ?>
 
