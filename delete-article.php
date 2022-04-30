@@ -19,18 +19,20 @@ if (isset($_GET['id'])) {
     die('Article ID is Not Supplied!');
 }
 
-$sql = "DELETE FROM article 
-        WHERE  id = ?";
-$stmt = mysqli_prepare($connection, $sql);
-if ($stmt === false) {
-    echo mysqli_error($connection);
-} else {
-    mysqli_stmt_bind_param($stmt, "i", $id);
-    if (mysqli_stmt_execute($stmt)) {
-    header("Location: index.php");
-    exit;
+if ($_SERVER["REQUEST_METHOD"] == "POST") { 
+    $sql = "DELETE FROM article 
+    WHERE  id = ?";
+    $stmt = mysqli_prepare($connection, $sql);
+    if ($stmt === false) {
+        echo mysqli_error($connection);
     } else {
-        echo mysqli_stmt_error($stmt);
+        mysqli_stmt_bind_param($stmt, "i", $id);
+        if (mysqli_stmt_execute($stmt)) {
+            header("Location: index.php");
+            exit;
+        } else {
+            echo mysqli_stmt_error($stmt);
+        }
     }
 }
 
