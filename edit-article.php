@@ -10,5 +10,13 @@
     } else {
         $article = null;
     }
+
+    var_dump($article);
     
 ?>
+
+<?php require 'includes/header.php'; ?>
+
+<h2>New article</h2>
+
+<?php require 'includes/article-form.php'; ?>
