@@ -27,6 +27,7 @@
                 <?= htmlspecialchars($article['content']); ?>
             </li>
         </ol>
+        <a href="./edit-article.php?id=<?= $article['id'] ?>">Edit Article</a>
     <?php endif; ?>    
 </body>
 
